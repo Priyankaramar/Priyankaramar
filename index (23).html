@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Development Quiz with Image Carousel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Carousel Styles ===== */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      height: 300px;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    /* Navigation Buttons */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* ===== Quiz Section ===== */
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+
+    .question {
+      margin-bottom: 25px;
+    }
+
+    .question p {
+      font-weight: bold;
+    }
+
+    .question label {
+      display: block;
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+
+    #submit-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #submit-btn:hover {
+      background-color: #004d40;
+    }
+
+    #result {
+      margin-top: 25px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    /* ===== Responsive Design ===== */
+    @media (max-width: 600px) {
+      .carousel {
+        height: 200px;
+      }
+
+      .carousel img {
+        height: 200px;
+      }
+
+      .container {
+        margin: 10px;
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      label {
+        font-size: 15px;
+      }
+
+      #submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Image Carousel ===== -->
+  <div class="carousel">
+    <img src="https://picsum.photos/id/1015/800/300" class="active" alt="Slide 1">
+    <img src="https://picsum.photos/id/1016/800/300" alt="Slide 2">
+    <img src="https://picsum.photos/id/1018/800/300" alt="Slide 3">
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <!-- ===== Quiz Section ===== -->
+  <div class="container">
+    <h2>Web Development Quiz</h2>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What does HTML stand for?</p>
+        <label><input type="radio" name="q1" value="a"> Hyper Text Markup Language</label>
+        <label><input type="radio" name="q1" value="b"> Home Tool Markup Language</label>
+        <label><input type="radio" name="q1" value="c"> Hyperlinks and Text Markup Language</label>
+      </div>
+
+      <div class="question">
+        <p>2. What does CSS stand for?</p>
+        <label><input type="radio" name="q2" value="a"> Creative Style Sheets</label>
+        <label><input type="radio" name="q2" value="b"> Cascading Style Sheets</label>
+        <label><input type="radio" name="q2" value="c"> Computer Style Sheets</label>
+      </div>
+
+      <div class="question">
+        <p>3. What is the correct HTML element for inserting a line break?</p>
+        <label><input type="radio" name="q3" value="a"> &lt;lb&gt;</label>
+        <label><input type="radio" name="q3" value="b"> &lt;br&gt;</label>
+        <label><input type="radio" name="q3" value="c"> &lt;break&gt;</label>
+      </div>
+
+      <div class="question">
+        <p>4. Which property is used to change the background color in CSS?</p>
+        <label><input type="radio" name="q4" value="a"> color</label>
+        <label><input type="radio" name="q4" value="b"> background-color</label>
+        <label><input type="radio" name="q4" value="c"> bgcolor</label>
+      </div>
+
+      <div class="question">
+        <p>5. Inside which HTML element do we put the JavaScript?</p>
+        <label><input type="radio" name="q5" value="a"> &lt;scripting&gt;</label>
+        <label><input type="radio" name="q5" value="b"> &lt;script&gt;</label>
+        <label><input type="radio" name="q5" value="c"> &lt;javascript&gt;</label>
+      </div>
+
+      <div class="question">
+        <p>6. How do you write "Hello World" in an alert box?</p>
+        <label><input type="radio" name="q6" value="a"> alertBox("Hello World");</label>
+        <label><input type="radio" name="q6" value="b"> msg("Hello World");</label>
+        <label><input type="radio" name="q6" value="c"> alert("Hello World");</label>
+      </div>
+
+      <div class="question">
+        <p>7. Which HTML attribute is used to define inline styles?</p>
+        <label><input type="radio" name="q7" value="a"> style</label>
+        <label><input type="radio" name="q7" value="b"> class</label>
+        <label><input type="radio" name="q7" value="c"> font</label>
+      </div>
+
+      <div class="question">
+        <p>8. Which CSS property controls the text size?</p>
+        <label><input type="radio" name="q8" value="a"> font-style</label>
+        <label><input type="radio" name="q8" value="b"> text-size</label>
+        <label><input type="radio" name="q8" value="c"> font-size</label>
+      </div>
+
+      <div class="question">
+        <p>9. How do you create a function in JavaScript?</p>
+        <label><input type="radio" name="q9" value="a"> function = myFunction()</label>
+        <label><input type="radio" name="q9" value="b"> function:myFunction()</label>
+        <label><input type="radio" name="q9" value="c"> function myFunction()</label>
+      </div>
+
+      <div class="question">
+        <p>10. Which event occurs when the user clicks on an HTML element?</p>
+        <label><input type="radio" name="q10" value="a"> onmouseover</label>
+        <label><input type="radio" name="q10" value="b"> onclick</label>
+        <label><input type="radio" name="q10" value="c"> onchange</label>
+      </div>
+
+      <button type="button" id="submit-btn" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    /* ===== Carousel Script ===== */
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel img');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function changeSlide(step) {
+      slideIndex = (slideIndex + step + slides.length) % slides.length;
+      showSlide(slideIndex);
+    }
+
+    // Auto-slide every 3 seconds
+    setInterval(() => {
+      changeSlide(1);
+    }, 3000);
+
+    /* ===== Quiz Script ===== */
+    function calculateScore() {
+      const correctAnswers = {
+        q1: "a", q2: "b", q3: "b", q4: "b", q5: "b",
+        q6: "c", q7: "a", q8: "c", q9: "c", q10: "b"
+      };
+
+      let score = 0;
+
+      for (let q in correctAnswers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === correctAnswers[q]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").textContent = `Your Score: ${score} out of 10`;
+    }
+  </script>
+
+</body>
+</html>
