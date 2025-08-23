@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz with Image Carousel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #2c7a7b;
+      color: white;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Quiz */
+    .quiz {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .question {
+      font-weight: bold;
+      margin: 15px 0 5px;
+    }
+    .options label {
+      display: block;
+      margin: 5px 0;
+    }
+    .submit-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #2c7a7b;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #285e61;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container { padding: 10px; }
+      .submit-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Quiz with Image Carousel</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Image Carousel -->
+    <div class="carousel">
+      <img src="/world.jpg">
+      <img src="/world image.jpg">
+       <button class="prev" onclick="prevSlide()">❮</button>
+      <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+    <!-- Quiz Section -->
+    <form id="quizForm" class="quiz">
+      <div class="question">1. What is the capital of France?</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="London"> London</label>
+        <label><input type="radio" name="q1" value="Paris"> Paris</label>
+        <label><input type="radio" name="q1" value="Rome"> Rome</label>
+      </div>
+      <div class="question">2. Which planet is known as the Red Planet?</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="Mars"> Mars</label>
+        <label><input type="radio" name="q2" value="Venus"> Venus</label>
+        <label><input type="radio" name="q2" value="Jupiter"> Jupiter</label>
+      </div>
+      <div class="question">3. Who wrote Hamlet?</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="Shakespeare"> Shakespeare</label>
+        <label><input type="radio" name="q3" value="Charles Dickens"> Charles Dickens</label>
+        <label><input type="radio" name="q3" value="Homer"> Homer</label>
+      </div>
+      <div class="question">4. What is the largest mammal?</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="Elephant"> Elephant</label>
+        <label><input type="radio" name="q4" value="Blue Whale"> Blue Whale</label>
+        <label><input type="radio" name="q4" value="Giraffe"> Giraffe</label>
+      </div>
+      <div class="question">5. Which gas do plants absorb from the atmosphere?</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="Oxygen"> Oxygen</label>
+        <label><input type="radio" name="q5" value="Carbon Dioxide"> Carbon Dioxide</label>
+        <label><input type="radio" name="q5" value="Nitrogen"> Nitrogen</label>
+      </div>
+      <div class="question">6. What is H<sub>2</sub>O commonly known as?</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="Water"> Water</label>
+        <label><input type="radio" name="q6" value="Oxygen"> Oxygen</label>
+        <label><input type="radio" name="q6" value="Hydrogen"> Hydrogen</label>
+      </div>
+      <div class="question">7. How many continents are there?</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="5"> 5</label>
+        <label><input type="radio" name="q7" value="6"> 6</label>
+        <label><input type="radio" name="q7" value="7"> 7</label>
+      </div>
+      <div class="question">8. What is the boiling point of water at sea level?</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="90"> 90°C</label>
+        <label><input type="radio" name="q8" value="100"> 100°C</label>
+        <label><input type="radio" name="q8" value="120"> 120°C</label>
+      </div>
+      <div class="question">9. Who painted the Mona Lisa?</div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="Van Gogh"> Van Gogh</label>
+        <label><input type="radio" name="q9" value="Leonardo da Vinci"> Leonardo da Vinci</label>
+        <label><input type="radio" name="q9" value="Picasso"> Picasso</label>
+      </div>
+      <div class="question">10. Which is the smallest prime number?</div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="1"> 1</label>
+        <label><input type="radio" name="q10" value="2"> 2</label>
+        <label><input type="radio" name="q10" value="3"> 3</label>
+      </div>
+      <button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
+      <div id="result"></div>
+    </form>
+  </div>
+  <script>
+    // Carousel
+    let index = 0;
+    const images = document.querySelectorAll(".carousel img");
+    function showSlide(n) {
+      images[index].classList.remove("active");
+      index = (n + images.length) % images.length;
+      images[index].classList.add("active");
+    }
+    function nextSlide() { showSlide(index + 1); }
+    function prevSlide() { showSlide(index - 1); }
+    setInterval(nextSlide, 3000)
+    // Quiz Answers
+    const answers = {
+      q1: "Paris",
+      q2: "Mars",
+      q3: "Shakespeare",
+      q4: "Blue Whale",
+      q5: "Carbon Dioxide",
+      q6: "Water",
+      q7: "7",
+      q8: "100",
+      q9: "Leonardo da Vinci",
+      q10: "2"
+    };
+    function submitQuiz() {
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      document.getElementById("result").textContent =
+        "You scored " + score + " out of " + Object.keys(answers).length;
+    }
+  </script>
+</body>
+</html>
