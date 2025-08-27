@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceptance of All Faiths Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+    }
+
+    /* Image Carousel */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+    .carousel img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .quiz-container {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    button.submit {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button.submit:hover {
+      background: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+      color: #222;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .quiz-container {
+        width: 95%;
+        padding: 15px;
+      }
+      .carousel {
+        height: 200px;
+      }
+      .carousel img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Image Carousel -->
+  <div class="carousel">
+    <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg" class="active" alt="Unity 1">
+    
+    <img src="https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg" alt="Unity 3">
+  </div>
+
+  <h1>Acceptance of All Faiths - Quiz</h1>
+
+  <div class="quiz-container">
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1. What does acceptance of all faiths mean?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="Respect"> Respecting every religion equally</label>
+          <label><input type="radio" name="q1" value="Ignore"> Ignoring differences</label>
+          <label><input type="radio" name="q1" value="Disagree"> Disagreeing with all religions</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>2. Which of the following is a symbol of unity among religions?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="Peace"> Peace</label>
+          <label><input type="radio" name="q2" value="Conflict"> Conflict</label>
+          <label><input type="radio" name="q2" value="Division"> Division</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>3. The phrase “Unity in Diversity” encourages us to?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="Celebrate"> Celebrate differences</label>
+          <label><input type="radio" name="q3" value="Fight"> Fight for superiority</label>
+          <label><input type="radio" name="q3" value="Ignore"> Ignore others</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>4. Which is more important in a multi-faith society?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="Respect"> Mutual respect</label>
+          <label><input type="radio" name="q4" value="Hate"> Hatred</label>
+          <label><input type="radio" name="q4" value="Violence"> Violence</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>5. Which quality strengthens acceptance of all faiths?</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="Tolerance"> Tolerance</label>
+          <label><input type="radio" name="q5" value="Jealousy"> Jealousy</label>
+          <label><input type="radio" name="q5" value="Anger"> Anger</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>6. Which world value is common across religions?</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="Love"> Love and compassion</label>
+          <label><input type="radio" name="q6" value="War"> War</label>
+          <label><input type="radio" name="q6" value="Hate"> Hatred</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>7. When people of different faiths work together, it builds?</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="Harmony"> Harmony</label>
+          <label><input type="radio" name="q7" value="Conflict"> Conflict</label>
+          <label><input type="radio" name="q7" value="Division"> Division</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>8. Which of these is an interfaith practice?</p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="Dialogue"> Dialogue and cooperation</label>
+          <label><input type="radio" name="q8" value="Isolation"> Isolation</label>
+          <label><input type="radio" name="q8" value="Hatred"> Hatred</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>9. A peaceful society is built on?</p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="Respect"> Respect and understanding</label>
+          <label><input type="radio" name="q9" value="Fear"> Fear</label>
+          <label><input type="radio" name="q9" value="Conflict"> Conflict</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>10. Which festival promotes harmony by being celebrated by multiple religions in India?</p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="Diwali"> Diwali</label>
+          <label><input type="radio" name="q10" value="Christmas"> Christmas</label>
+          <label><input type="radio" name="q10" value="Eid"> Eid</label>
+        </div>
+      </div>
+
+      <button type="button" class="submit" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Carousel
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel img');
+    setInterval(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 3000);
+
+    // Quiz Answers
+    const answers = {
+      q1: "Respect",
+      q2: "Peace",
+      q3: "Celebrate",
+      q4: "Respect",
+      q5: "Tolerance",
+      q6: "Love",
+      q7: "Harmony",
+      q8: "Dialogue",
+      q9: "Respect",
+      q10: "Eid"
+    };
+
+    function checkAnswers() {
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+      document.getElementById("result").innerText = 
+        `You scored ${score} out of 10.`;
+    }
+  </script>
+</body>
+</html>
